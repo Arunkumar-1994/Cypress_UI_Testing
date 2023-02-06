@@ -1,0 +1,12 @@
+{
+    "chromeWebSecurity": false,
+    "testFiles": "**/*.feature",
+    "env": {
+        "guru99nsurance": "https://demo.guru99.com/insurance/v1/index.php"
+    },
+    "defaultCommandTimeout": 80000,
+    "pageLoadTimeout": 80000,
+    "responseTimeout": 4000,
+    "viewportWidth": 1200,
+    "viewportHeight": 750
+}
