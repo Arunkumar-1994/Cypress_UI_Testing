@@ -12,25 +12,26 @@ const editProfillePage =new EditProfillePage();
 const registerPage = new RegisterPage();
 
 let data = {};
+let data1 = {};
 
 beforeEach(() => {
     cy.visit(Cypress.env('guru99nsurance'))
-    cy.fixture('insuranceData').then(function (jsonData) {
-        data = jsonData
+    cy.fixture('editProfileData').then(function (jsonData) {
+        data1 = jsonData
     })
+    cy.fixture('loginData').then(function (jsonData) {
+      data = jsonData
+  })
  });
  
  Given('User visit the guru99 insurance site and lands on login page',()=>{
  
-    cy.title().should('eq', 'Insurance Broker System - Login')
-    cy.waitUntil(() => loginPage.getLogincontentText().should('have.text', 'Login'))
- 
+   cy.title().should('eq', data.pageTitle)
+   cy.waitUntil(() => loginPage.getLogincontentText().should('have.text', data.loginText))  
  })
  
  When('User enter valid emailid and password button',()=>{
-    cy.waitUntil(() => loginPage.clickEmailBox().type('testPurpose@abv.pg'))
-    cy.waitUntil(() => loginPage.clickPasswordBox().type('testAbcd123'))
- 
+   cy.enterEmailIdPassword(data.enterEmailAddress, data.enterPassword)
  })
  
  And('Click Login button',()=>{
@@ -47,15 +48,15 @@ beforeEach(() => {
 
  Then('User should view text Editing user profile details',()=>{
 
-    cy.waitUntil(()=>editProfillePage.getEditProfileHeading().should('have.text','Editing user profile'))
+    cy.waitUntil(()=>editProfillePage.getEditProfileHeading().should('have.text',data1.headerText))
 
  })
         
  And('User update the user profile details',()=>{
 
-    registerPage.enterCityName().type('Mangalore')
-    registerPage.enterAddressStreet().type('madiwala street')
-    registerPage.selectOcupation().select('Lawyer')
+    registerPage.enterCityName().type(data1.updateCityName)
+    registerPage.enterAddressStreet().type(data1.updateStreetName)
+    registerPage.selectOccupation().select(data1.updateOccupation)
  })
  
  And('User click update user button',()=>{

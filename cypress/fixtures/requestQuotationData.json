@@ -2,11 +2,12 @@
     "requestText":"Request a quotation",
     "selectQuoationBreakDownCover":"2",
     "enterIncidents":"roadAccident",
-    "enterVechicleRegistration":"KA 54 T 0988",
+    "enterVechicleRegistration":"KA 54 T ",
     "enterEstimatedValue":"124000",
     "enterAnnualMileage":"4000",
     "selectParkingLocation":"Driveway",
     "selectYearStateOfPolicy":"2021",
     "selectMonthStateOfPolicy":"9",
-    "selectDateStateOfPolicy":"15"
+    "selectDateStateOfPolicy":"15",
+    "newQuoationIncludes":"new_quotation.php"
 }

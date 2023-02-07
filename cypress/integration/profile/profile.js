@@ -13,23 +13,20 @@ let data = {};
 
 beforeEach(() => {
     cy.visit(Cypress.env('guru99nsurance'))
-    cy.fixture('insuranceData').then(function (jsonData) {
-        data = jsonData
-    })
+    cy.fixture('loginData').then(function (jsonData) {
+      data = jsonData
+  })
  });
  
  
  Given('User visit the guru99 insurance site and lands on login page',()=>{
  
-    cy.title().should('eq', 'Insurance Broker System - Login')
-    cy.waitUntil(() => loginPage.getLogincontentText().should('have.text', 'Login'))
- 
+   cy.title().should('eq', data.pageTitle)
+   cy.waitUntil(() => loginPage.getLogincontentText().should('have.text', data.loginText))  
  })
  
  When('User enter valid emailid and password button',()=>{
-    cy.waitUntil(() => loginPage.clickEmailBox().type('testPurpose@abv.pg'))
-    cy.waitUntil(() => loginPage.clickPasswordBox().type('testAbcd123'))
- 
+   cy.enterEmailIdPassword(data.enterEmailAddress, data.enterPassword)
  })
  
  And('Click Login button',()=>{

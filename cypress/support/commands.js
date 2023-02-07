@@ -24,6 +24,17 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 import 'cypress-wait-until';
+import LoginPage from '../support/pageObjects/loginPage';
+import RegisterPage from '../support/pageObjects/registerPage';
+import HomePage from '../support/pageObjects/homePage';
+import RequestQuationPage from '../support/pageObjects/requestQuationPage';
+
+const loginPage = new LoginPage();
+const registerPage = new RegisterPage();
+const homePage = new HomePage();
+const requestQuationPage = new RequestQuationPage();
+
+
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     
@@ -33,7 +44,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 
 })
 
-Cypress.Commands.add("registerAUser",(title,firstName,surName,enterPhoneNumber,selectYear,selectMonth,selectDate,selectLicensePeriodYear,selectOccupation,selectLicensePeriodYear,enterAddress,enterCity,enterCountry,enterPostalCode,enterEmailAddress,enterPassword)=>{
+Cypress.Commands.add("registerAUser",(title,firstName,surName,enterPhoneNumber,selectYear,selectMonth,selectDate,selectLicensePeriodYe,selectOccupation,selectLicensePeriodYear,enterAddress,enterCity,enterCountry,enterPostalCode,enterEmailAddress,enterPassword)=>{
 
 
     registerPage.selectTitle().select(title,{force:true})
@@ -44,13 +55,11 @@ Cypress.Commands.add("registerAUser",(title,firstName,surName,enterPhoneNumber,s
     registerPage.selectYear().select(selectYear)
     registerPage.selectYear().should('have.value',selectYear)
     registerPage.selectMonth().select(selectMonth)
-    registerPage.selectDate().select(selectDate)
-    registerPage.selectMonth().should('have.value',selectMonth)
+    registerPage.selectDate().select(selectDate) 
     registerPage.selectDate().should('have.value',selectDate)
     registerPage.checkLicenceType().last().click()
     registerPage.selectLicensePeriod().select(selectLicensePeriodYear)
     registerPage.selectOccupation().select(selectOccupation)
-    registerPage.selectLicensePeriod().should('have.value',selectLicensePeriodYear)
     registerPage.enterAddressStreet().type(enterAddress)
     registerPage.enterCityName().type(enterCity)
     registerPage.enterCountryName().type(enterCountry)
@@ -64,10 +73,27 @@ Cypress.Commands.add("enterEmailIdPassword",(enterEmailAddress,enterPassword)=>{
 
     cy.waitUntil(() => loginPage.clickEmailBox().type(enterEmailAddress))
     cy.waitUntil(() => loginPage.clickPasswordBox().type(enterPassword))
+})
+
+
+Cypress.Commands.add("createRequestQuotation",(requestText,enterIncidents,enterVechicleRegistration,enterEstimatedValue,enterAnnualMileage,selectParkingLocation,selectYearStateOfPolicy,selectMonthStateOfPolicy,selectDateStateOfPolicy)=>{
+
+    cy.waitUntil(()=>requestQuationPage.getQuationext().should('have.text',requestText))
+    cy.waitUntil(()=>requestQuationPage.selectQuoationBreakDownCover().select('4'))
+    cy.waitUntil(()=>requestQuationPage.selectWindScreenRepair().first().click())
+    cy.waitUntil(()=>requestQuationPage.enterIncidents().type(enterIncidents))
+    cy.waitUntil(()=>requestQuationPage.enterVechicleRegistration().type(enterVechicleRegistration))
+    cy.waitUntil(()=>requestQuationPage.enterEstimatedValue().type(enterEstimatedValue))
+    cy.waitUntil(()=>requestQuationPage.enterAnnualMileage().type(enterAnnualMileage))
+    cy.waitUntil(()=>requestQuationPage.selectParkingLocation().select(selectParkingLocation))
+    cy.waitUntil(()=>requestQuationPage.selectYearStateOfPolicy().select(selectYearStateOfPolicy))
+    cy.waitUntil(()=>requestQuationPage.selectMonthStateOfPolicy().select(selectMonthStateOfPolicy))
+    cy.waitUntil(()=>requestQuationPage.selectDateStateOfPolicy().select(selectDateStateOfPolicy))
+ 
+
 
 
 })
-
 
 
     
