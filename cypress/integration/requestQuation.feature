@@ -6,10 +6,26 @@ Feature: Create a request quation
         When User enter valid emailid and password button
         And Click Login button
         And User click request button
-        And User enter the quation details 
+        And User enter the quoation details 
         And User click the save quoation button
         Then User to navigate the new quotation page
-        And User click retrieve button 
-        And User enter identification number
-        When Click on retrieve button
-        Then User can view the quoation detail
+
+   Scenario: verify user able to calculate premium for request quoation 
+
+        Given User visit the guru99 insurance site and lands on login page
+        When User enter valid emailid and password button
+        And Click Login button
+        And User click request button
+        And User enter the quoation details 
+        And User click calculate premium button
+        Then User should able to view premium amount   
+
+   Scenario: verify user able to reset quotation details  
+
+        Given User visit the guru99 insurance site and lands on login page
+        When User enter valid emailid and password button
+        And Click Login button
+        And User click request button
+        And User enter the quoation details 
+        And User click reset form button
+        Then User should able to view request quoation details        

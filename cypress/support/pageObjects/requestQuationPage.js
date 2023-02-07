@@ -82,6 +82,10 @@ class requestQuationPage{
 
         return cy.get('body')
     }
+   
+    getPremiumAmount(){
 
+        return cy.get('[id="calculatedpremium"]')
+    }
     }
 export default requestQuationPage;

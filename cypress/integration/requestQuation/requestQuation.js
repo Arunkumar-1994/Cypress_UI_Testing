@@ -5,6 +5,8 @@ import LoginPage from '../../support/pageObjects/loginPage';
 import RequestQuationPage from '../../support/pageObjects/requestQuationPage';
 import { When, Then, Given, And } from 'cypress-cucumber-preprocessor/steps';
 import RetrieveQuationPage from '../../support/pageObjects/retrieveQuationPage';
+import { makeRandomString } from '../../support/generic-library/commanGenericFunction'
+
 
 const requestQuationPage = new RequestQuationPage();
 const loginPage = new LoginPage();
@@ -13,13 +15,14 @@ const retrieveQuationPage=new RetrieveQuationPage();
 
 let data = {};
 let data1={};
+let vechicleNumber =makeRandomString(4)
 
 beforeEach(() => {
    cy.visit(Cypress.env('guru99nsurance'))
-   cy.fixture('insuranceData').then(function (jsonData) {
+   cy.fixture('loginData').then(function (jsonData) {
        data = jsonData
    })
-   cy.fixture('requestQuotionData').then(function (jsonData) {
+   cy.fixture('requestQuotationData').then(function (jsonData) {
       data1 = jsonData
   })
 });
@@ -49,20 +52,11 @@ And('User click request button',()=>{
    cy.waitUntil(()=>homePage.clickNewContent().click())
 })
 
-And('User enter the quation details',()=>{
+And('User enter the quoation details',(requestText,enterIncidents,enterVechicleRegistration,enterEstimatedValue,enterAnnualMileage,selectParkingLocation,selectYearStateOfPolicy,selectMonthStateOfPolicy,selectDateStateOfPolicy)=>{
+    
+   var vechNum=data1.enterVechicleRegistration+vechicleNumber
 
-   cy.waitUntil(()=>requestQuationPage.getQuationext().should('have.text',data1.requestText))
-   cy.waitUntil(()=>requestQuationPage.selectQuoationBreakDownCover().select())
-   cy.waitUntil(()=>requestQuationPage.selectWindScreenRepair().first().click())
-   cy.waitUntil(()=>requestQuationPage.enterIncidents().type(data1.enterIncidents))
-   cy.waitUntil(()=>requestQuationPage.enterVechicleRegistration().type(data1.enterVechicleRegistration))
-   cy.waitUntil(()=>requestQuationPage.enterEstimatedValue().type(data1.enterEstimatedValue))
-   cy.waitUntil(()=>requestQuationPage.enterAnnualMileage().type(data1.enterAnnualMileage))
-   cy.waitUntil(()=>requestQuationPage.selectParkingLocation().select(data1.selectParkingLocation))
-   cy.waitUntil(()=>requestQuationPage.selectYearStateOfPolicy().select(data1.selectYearStateOfPolicy))
-   cy.waitUntil(()=>requestQuationPage.selectMonthStateOfPolicy().select(data1.selectMonthStateOfPolicy))
-   cy.waitUntil(()=>requestQuationPage.selectDateStateOfPolicy().select(data1.selectDateStateOfPolicy))
-
+   cy.createRequestQuotation(data1.requestText,data1.enterIncidents,vechNum,data1.enterEstimatedValue,data1.enterAnnualMileage,data1.selectParkingLocation,data1.selectYearStateOfPolicy,data1.selectMonthStateOfPolicy,data1.selectDateStateOfPolicy)
 }) 
 
 And('User click the save quoation button',()=>{
@@ -72,26 +66,38 @@ And('User click the save quoation button',()=>{
 
 Then('User to navigate the new quotation page',()=>{
 
-   cy.url().should('includes','new_quotation.php')
+   cy.url().should('includes',data1.newQuoationIncludes)
    cy.go('back')
 }) 
 
-And('User click retrieve button',()=>{
-   cy.waitUntil(()=>homePage.clickRetriveQuoation().click())
+/**
+ * 
+ * verify user able to calculate premium
+ */
 
+And 
+('User click calculate premium button',()=>{
+
+   cy.waitUntil(()=>requestQuationPage.clickCalculatePremiumButton().should('be.enabled').click())
 })
 
-And('User enter identification number',()=>{
-cy.waitUntil(()=>retrieveQuationPage.enterIdentifactionNum().type('21313'))
+Then('User should able to view premium amount',()=>{
 
+   cy.waitUntil(()=>requestQuationPage.getPremiumAmount().should('be.visible'))
 })
 
-When('Click on retrieve button',()=>{
-   cy.waitUntil(()=>retrieveQuationPage.clikRetrieveButton().click({force:true}))
+ /**
+  * 
+  * verify user able to reset quotation details
+  * 
+  */
 
-})
+ And('User click reset form button',()=>{
+ 
+   cy.waitUntil(()=>requestQuationPage.clickResetForm().should('be.enabled').click())
+ })
+   
+ Then('User should able to view request quoation details',()=>{
 
-Then('User can view the quoation details',()=>{
-
-
-})
+   cy.waitUntil(()=>requestQuationPage.enterIncidents().should('have.attr','name','incidents'))
+ }) 

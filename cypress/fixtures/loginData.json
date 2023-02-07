@@ -20,5 +20,6 @@
   "enterPassword":"testAbcd123",
   "errorMessage":"Enter your Email address and password correct",
   "invalidEmailId":"testPu@abv.pg",
+  "invalidPassword":"testTest",
   "homePageTitleNew":"Insurance Broker System"
 }
