@@ -1,0 +1,72 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "View user profile details",
+    "line": 1,
+    "id": "view-user-profile-details",
+    "tags": [],
+    "uri": "profile.feature",
+    "elements": [
+      {
+        "id": "view-user-profile-details;verify-user-should-be-able-to-view-profile-details",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "verify user should be able to view profile details",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "User visit the guru99 insurance site and lands on login page",
+            "result": {
+              "status": "passed",
+              "duration": 5503000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "User enter valid emailid and password button",
+            "result": {
+              "status": "passed",
+              "duration": 1056000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 7,
+            "name": "Click Login button",
+            "result": {
+              "status": "passed",
+              "duration": 5402000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "User click profile tap",
+            "result": {
+              "status": "passed",
+              "duration": 344000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "User can view profile details",
+            "result": {
+              "status": "passed",
+              "duration": 131000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

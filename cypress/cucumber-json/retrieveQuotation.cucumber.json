@@ -1,0 +1,82 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "User view retrieve quotation table",
+    "line": 1,
+    "id": "user-view-retrieve-quotation-table",
+    "tags": [],
+    "uri": "retrieveQuotation.feature",
+    "elements": [
+      {
+        "id": "user-view-retrieve-quotation-table;verify-user-should-be-able-to-view-retrieve-quotation-table",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "verify user should be able to view retrieve quotation table",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "User visit the guru99 insurance site and lands on login page",
+            "result": {
+              "status": "passed",
+              "duration": 6551000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "User enter valid emailid and password button",
+            "result": {
+              "status": "passed",
+              "duration": 1104000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 7,
+            "name": "Click Login button",
+            "result": {
+              "status": "passed",
+              "duration": 5526000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "User click retrieve quotation tap",
+            "result": {
+              "status": "passed",
+              "duration": 2656000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "User should be able to view retrieve quotation heading",
+            "result": {
+              "status": "passed",
+              "duration": 138000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "User should able to view retrieve quotation table",
+            "result": {
+              "status": "passed",
+              "duration": 2137000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
