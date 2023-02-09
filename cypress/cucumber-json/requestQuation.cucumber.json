@@ -1,0 +1,252 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "Create a request quation",
+    "line": 1,
+    "id": "create-a-request-quation",
+    "tags": [],
+    "uri": "requestQuation.feature",
+    "elements": [
+      {
+        "id": "create-a-request-quation;verify-user-able-to-create-quation",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "verify user able to create quation",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "User visit the guru99 insurance site and lands on login page",
+            "result": {
+              "status": "passed",
+              "duration": 58169000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "User enter valid emailid and password button",
+            "result": {
+              "status": "passed",
+              "duration": 1394000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 7,
+            "name": "Click Login button",
+            "result": {
+              "status": "passed",
+              "duration": 2437000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "User click request button",
+            "result": {
+              "status": "passed",
+              "duration": 488000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "User enter the quoation details",
+            "result": {
+              "status": "passed",
+              "duration": 4258000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "User click the save quoation button",
+            "result": {
+              "status": "passed",
+              "duration": 1920000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 11,
+            "name": "User to navigate the new quotation page",
+            "result": {
+              "status": "passed",
+              "duration": 1594000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "create-a-request-quation;verify-user-able-to-calculate-premium-for-request-quoation",
+        "keyword": "Scenario",
+        "line": 13,
+        "name": "verify user able to calculate premium for request quoation",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 15,
+            "name": "User visit the guru99 insurance site and lands on login page",
+            "result": {
+              "status": "passed",
+              "duration": 4997000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 16,
+            "name": "User enter valid emailid and password button",
+            "result": {
+              "status": "passed",
+              "duration": 1244000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 17,
+            "name": "Click Login button",
+            "result": {
+              "status": "passed",
+              "duration": 2765000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 18,
+            "name": "User click request button",
+            "result": {
+              "status": "passed",
+              "duration": 334000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 19,
+            "name": "User enter the quoation details",
+            "result": {
+              "status": "passed",
+              "duration": 4677000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 20,
+            "name": "User click calculate premium button",
+            "result": {
+              "status": "passed",
+              "duration": 440000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 21,
+            "name": "User should able to view premium amount",
+            "result": {
+              "status": "passed",
+              "duration": 195000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "create-a-request-quation;verify-user-able-to-reset-quotation-details",
+        "keyword": "Scenario",
+        "line": 23,
+        "name": "verify user able to reset quotation details",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 25,
+            "name": "User visit the guru99 insurance site and lands on login page",
+            "result": {
+              "status": "passed",
+              "duration": 2561000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 26,
+            "name": "User enter valid emailid and password button",
+            "result": {
+              "status": "passed",
+              "duration": 1349000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 27,
+            "name": "Click Login button",
+            "result": {
+              "status": "passed",
+              "duration": 2365000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 28,
+            "name": "User click request button",
+            "result": {
+              "status": "passed",
+              "duration": 318000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 29,
+            "name": "User enter the quoation details",
+            "result": {
+              "status": "passed",
+              "duration": 4345000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 30,
+            "name": "User click reset form button",
+            "result": {
+              "status": "passed",
+              "duration": 448000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 31,
+            "name": "User should able to view request quoation details",
+            "result": {
+              "status": "passed",
+              "duration": 233000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
