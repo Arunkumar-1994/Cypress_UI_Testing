@@ -38,7 +38,7 @@ Then('User should be navigate to register page', () => {
     cy.title().should('eq', data.homePageTitle)
 })
 
-And('User enter valid details in the register page', (title,firstName,surName,enterPhoneNumber,selectYear,selectMonth,selectDate,selectLicensePeriodYear,selectOccupation,selectLicensePeriodYe,enterAddress,enterCity,enterCountry,enterPostalCode,enterEmailAddress,enterPassword) => {
+And('User enter valid details in the register page', () => {
 
 
     cy.registerAUser(data.title, data.firstName, data.surName, data.enterPhoneNumber, data.selectYear, data.selectMonth, data.selectDate, data.selectLicensePeriodYe, data.selectOccupation, data.selectLicensePeriodYear, data.enterAddress, data.enterCity, data.enterCountry, data.enterPostalCode, data.enterEmailAddress, data.enterPassword)
