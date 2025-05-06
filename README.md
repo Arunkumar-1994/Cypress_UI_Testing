@@ -1,4 +1,4 @@
-# TestUnityAssignment
+# Cypress_Assignment
 
 
 1. Project's Title
